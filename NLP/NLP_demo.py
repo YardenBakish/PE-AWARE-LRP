@@ -22,11 +22,14 @@ attnlrp.register(model)
 prompt = """\
 The following is multiple choice question (with answers).
 
-A class is testing the effect of exercise on heart rate. The heart rate of two students before exercise is compared to their heart rate after running around a track. Which procedure will most likely help the class correctly compare the results of the two students?
+Which factor will most likely cause a person to develop a fever?
+A. a leg muscle relaxing after exercise
+B. a bacterial population in the bloodstream
+C. several viral particles on the skin
+D. carbohydrates being digested in the stomach
 
-
-Please make sure to answer (A,B,C, or D)\nAnswer is:
-"""
+Please make sure to answer (A,B,C, or D)
+Answer is:"""
 
 input_ids = tokenizer(prompt, return_tensors="pt", add_special_tokens=True).input_ids.to(model.device)
 input_embeds = model.get_input_embeddings()(input_ids)
@@ -68,8 +71,15 @@ relevance+=acc_relevancy
 relevance = relevance / relevance.abs().max()
 
 
+
+
 # remove '_' characters from token strings and plot the heatmap
 tokens = tokenizer.convert_ids_to_tokens(input_ids[0])
 tokens = clean_tokens(tokens)
 
-pdf_heatmap(tokens, relevance, path='heatmap.pdf', backend='xelatex')
+num_elements = int(relevance.numel() * 0.5)
+top_values, _ = torch.topk(relevance, num_elements)
+top_values = top_values[-1].item()
+relevance[relevance>top_values] = 1
+
+pdf_heatmap(tokens, relevance, path='heatmapOurs.pdf', backend='xelatex')

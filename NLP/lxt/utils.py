@@ -51,6 +51,9 @@ def _compile_latex_to_pdf(latex_code, path='word_colors.pdf', delete_aux_files=T
     with open(path.with_suffix(".tex"), 'w') as f:
         f.write(latex_code)
 
+
+    subprocess.call(['xelatex', '--output-directory', path.parent, path.with_suffix(".tex")])
+#
     ## Use pdflatex to generate PDF file
     #if backend == 'pdflatex':
     #    subprocess.call(['pdflatex', '--output-directory', path.parent, path.with_suffix(".tex")])
