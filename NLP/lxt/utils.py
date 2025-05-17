@@ -38,7 +38,7 @@ def _generate_latex(words, relevances, cmap="bwr"):
             latex_code += f' \\colorbox[RGB]{{{r},{g},{b}}}{{\\strut {word}}}'
 
 
-    latex_code += r'}}'
+    latex_code += r'}}\end{document}'
 
     return latex_code
 
