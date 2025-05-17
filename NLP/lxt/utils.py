@@ -17,7 +17,11 @@ def _generate_latex(words, relevances, cmap="bwr"):
 
     # Generate LaTeX code
     latex_code = r'''
-   
+
+    \documentclass[arwidth=200mm]{standalone} 
+    \usepackage[dvipsnames]{xcolor}
+    
+    \begin{document}
     \fbox{
     \parbox{\textwidth}{
     \setlength\fboxsep{0pt}
