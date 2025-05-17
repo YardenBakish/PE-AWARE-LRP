@@ -88,7 +88,6 @@ def compute_rollout_attention(all_layer_matrices, start_layer=0):
 class Mlp(nn.Module):
     def __init__(self, in_features, hidden_features=None, out_features=None, drop=0., isWithBias=True, activation = GELU):
         super().__init__()
-        print(f"inside MLP with isWithBias: {isWithBias} and activation {activation}")
         out_features = out_features or in_features
         hidden_features = hidden_features or in_features
         self.fc1 = Linear(in_features, hidden_features, bias = isWithBias)
@@ -121,7 +120,6 @@ class Attention(nn.Module):
         
         super().__init__()
 
-        print(f"inside attention with activation : {attn_activation} | bias: {isWithBias} ")
         self.num_heads = num_heads
 
         head_dim = dim // num_heads
@@ -258,7 +256,6 @@ class Block(nn.Module):
                 attn_activation = Softmax(dim=-1),
              ):
         super().__init__()
-        print(f"Inside block with bias: {isWithBias} | norm : {layer_norm} | activation: {activation} | attn_activation: {attn_activation}  ")
 
         self.norm1 = safe_call(layer_norm, normalized_shape= dim, bias = isWithBias ) 
         self.attn = Attention(
@@ -329,7 +326,6 @@ class VisionTransformer(nn.Module):
                ):
         
         super().__init__()
-        print(f"calling vision transformer with bias: {isWithBias} | norm : {layer_norm} | activation: {activation} | attn_activation: {attn_activation}  ")
 
         self.num_classes = num_classes
         self.num_features = self.embed_dim = embed_dim  # num_features for consistency with other models
@@ -642,7 +638,6 @@ def deit_tiny_patch16_224(pretrained=False,
                         
                           **kwargs):
 
-    print(f"calling vision transformer with bias: {isWithBias} | norm : {layer_norm} | activation: {activation} | attn_activation: {attn_activation}  ")
     model = VisionTransformer(
         patch_size=16, embed_dim=192, depth=12, num_heads=3, mlp_ratio=4, 
         qkv_bias        = isWithBias, 
