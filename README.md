@@ -35,4 +35,4 @@ If you use this codebase, or otherwise found our work valuable, please cite:
  <pre> TBD </pre> 
 
 ## Acknowledgments
-The code is heavily inspired by [Transformer-Explainability](https://github.com/hila-chefer/Transformer-Explainability) for Vision models, and [AttnLRP](https://github.com/rachtibat/LRP-eXplains-Transformers/tree/main) for NLP. Thanks for their wonderful works.
+The code is heavily inspired by [Transformer-Explainability](https://github.com/hila-chefer/Transformer-Explainability) for Vision models, and [AttnLRP](https://github.com/rachtibat/LRP-eXplains-Transformers/tree/main) and [XAI for Transformers](https://github.com/AmeenAli/XAI_Transformers)  for NLP. Thanks for their wonderful works.
