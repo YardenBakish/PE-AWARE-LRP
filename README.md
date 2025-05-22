@@ -5,7 +5,7 @@
 </div>
 
 ## Usage
-We provide demo notebooks for both Vision and NLP:
+We provide notebooks for both Vision and NLP:
 - [Vision](https://colab.research.google.com/drive/1NyRSQG2IlCJ362FAFdgh3EZcpNFnjsqF?usp=sharing)
 - [NLP](https://colab.research.google.com/drive/1NyRSQG2IlCJ362FAFdgh3EZcpNFnjsqF?usp=sharing)
 
