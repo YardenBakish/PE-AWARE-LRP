@@ -6,8 +6,8 @@
 
 ## Usage
 We provide notebooks for both Vision and NLP:
-- [Vision](https://colab.research.google.com/drive/1NyRSQG2IlCJ362FAFdgh3EZcpNFnjsqF?usp=sharing)
-- [NLP](https://colab.research.google.com/drive/1NyRSQG2IlCJ362FAFdgh3EZcpNFnjsqF?usp=sharing)
+- [Vision](https://github.com/YardenBakish/PE-AWARE-LRP/blob/main/vision_explainability.ipynb)
+- [NLP](https://github.com/YardenBakish/PE-AWARE-LRP/blob/main/NLP_explainability.ipynb)
 
 ## Vision
 - Segmentation Tests:
