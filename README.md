@@ -5,9 +5,9 @@
 </div>
 
 ## Usage
-
-### [DEMO](https://colab.research.google.com/drive/1NyRSQG2IlCJ362FAFdgh3EZcpNFnjsqF?usp=sharing)
-
+We provide demo notebooks for both Vision and NLP:
+- [Vision](https://colab.research.google.com/drive/1NyRSQG2IlCJ362FAFdgh3EZcpNFnjsqF?usp=sharing)
+- [NLP](https://colab.research.google.com/drive/1NyRSQG2IlCJ362FAFdgh3EZcpNFnjsqF?usp=sharing)
 
 ## Vision
 - Segmentation Tests:
