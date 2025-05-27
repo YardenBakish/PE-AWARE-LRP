@@ -4,12 +4,14 @@
 <img src="images/PE_LRP_examples.png" alt="Alt text" width="400" height="400" style="display: inline-block" >
 </div> 
 
-## Usage
+## Usage (Demos)
 We provide notebooks for both Vision and NLP:
 - [Vision](https://github.com/YardenBakish/PE-AWARE-LRP/blob/main/demo/vision_explainability.ipynb)
 - [NLP](https://github.com/YardenBakish/PE-AWARE-LRP/blob/main/demo/NLP_explainability.ipynb)
 
-## Vision
+## Reproducibility of Experiments
+
+### Vision
 - Segmentation Tests:
   * Download the data [gtsegs_ijcv.mat](http://calvin-vision.net/bigstuff/proj-imagenet/data/gtsegs_ijcv.mat), and place it in the main folder.
   * Run the following:  <pre> ``` python analyze_seg_results.py  --check-all ``` </pre> 
@@ -19,7 +21,7 @@ We provide notebooks for both Vision and NLP:
   * Download the [Imagenet](https://www.image-net.org/) dataset. In config.py, line 25, put the download path
   * Run the following:  <pre> ```python analyze_pert_results.py --check-all --fract <> --model <*.pth> --batch-size <> ``` </pre> 
 
-## NLP
+### NLP
 - Finetune:
   To finetune Llama-Tiny and Llama-2-7b on the IMDB dataset, do as follows:
   * make NLP/ your current working directory
