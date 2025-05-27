@@ -6,8 +6,8 @@
 
 ## Usage
 We provide notebooks for both Vision and NLP:
-- [Vision](https://github.com/YardenBakish/PE-AWARE-LRP/blob/main/vision_explainability.ipynb)
-- [NLP](https://github.com/YardenBakish/PE-AWARE-LRP/blob/main/NLP_explainability.ipynb)
+- [Vision](https://github.com/YardenBakish/PE-AWARE-LRP/blob/main/demo/vision_explainability.ipynb)
+- [NLP](https://github.com/YardenBakish/PE-AWARE-LRP/blob/main/demo/NLP_explainability.ipynb)
 
 ## Vision
 - Segmentation Tests:
