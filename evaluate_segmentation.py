@@ -21,7 +21,6 @@ from timm.data.constants import IMAGENET_DEFAULT_MEAN, IMAGENET_DEFAULT_STD
 
 
 from ViT_explanation_generator import Baselines, LRP
-from old.model import deit_tiny_patch16_224 as vit_LRP
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -217,8 +216,6 @@ dl = DataLoader(ds, batch_size=batch_size, shuffle=False, num_workers=1, drop_la
 # Model
 
 #FIXME: currently only attribution method is tested. Add support for other methods using other variants 
-model = vit_LRP(pretrained=True).cuda()
-baselines = Baselines(model)
 
 if args.custom_trained_model != None:
     if args.data_set == 'IMNET100':
@@ -240,16 +237,12 @@ if args.custom_trained_model != None:
 model_LRP.eval()
 lrp = LRP(model_LRP)
 
-# orig LRP
-model_orig_LRP = vit_LRP(pretrained=True).cuda()
-model_orig_LRP.eval()
-orig_lrp = LRP(model_orig_LRP)
+
 
 metric = IoU(2, ignore_index=-1)
 
 iterator = tqdm(dl)
 
-model.eval()
 
 
 def compute_pred(output):
@@ -285,9 +278,6 @@ def eval_batch(image, labels, evaluator, index):
 
         Res = lrp.generate_LRP(image.cuda(), method=args.method, cp_rule = args.cp_rule,prop_rules = args.prop_rules,).reshape(14, 14).unsqueeze(0).unsqueeze(0) 
     
-    elif args.method == 'rollout':
-        Res = baselines.generate_rollout(image.cuda(), start_layer=1).reshape(batch_size, 1, 14, 14)
-    
     # segmentation test for the LRP baseline (this is full LRP, not partial)
     elif 'full_lrp' in args.method:
         Res  = lrp.generate_LRP(image.cuda(), method=args.method,  cp_rule = args.cp_rule, prop_rules = args.prop_rules,  conv_prop_rule = args.conv_prop_rule, index=None).reshape(1, 1, 224, 224).detach()
@@ -297,18 +287,7 @@ def eval_batch(image, labels, evaluator, index):
         Res = lrp.generate_LRP(image.cuda(), start_layer=1, method="transformer_attribution", cp_rule = args.cp_rule).reshape(batch_size, 1, 14, 14)
     
     # segmentation test for the partial LRP baseline (last attn layer)
-    elif args.method == 'lrp_last_layer':
-        Res = orig_lrp.generate_LRP(image.cuda(), method="last_layer", is_ablation=args.is_ablation, cp_rule = args.cp_rule)\
-            .reshape(batch_size, 1, 14, 14)
     
-    # segmentation test for the raw attention baseline (last attn layer)
-    elif args.method == 'attn_last_layer':
-        Res = orig_lrp.generate_LRP(image.cuda(), method="last_layer_attn", is_ablation=args.is_ablation, cp_rule = args.cp_rule)\
-            .reshape(batch_size, 1, 14, 14)
-    
-    # segmentation test for the GradCam baseline (last attn layer)
-    elif args.method == 'attn_gradcam':
-        Res = baselines.generate_cam_attn(image.cuda()).reshape(batch_size, 1, 14, 14)
 
     if 'full_lrp' not in args.method:
         # interpolate to full image size (224,224)
