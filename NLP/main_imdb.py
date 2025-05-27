@@ -5,7 +5,7 @@ from transformers import BitsAndBytesConfig, AdamW, get_linear_schedule_with_war
 import config
 import os
 from utils import get_latest_checkpoint
-from lxt.models.llama import LlamaForCausalLM, attnlrp, LlamaForTokenClassification, LlamaForSequenceClassification
+from lxt.models.llama_PE import LlamaForCausalLM, attnlrp, LlamaForTokenClassification, LlamaForSequenceClassification
 from helper_scripts.helper_functions import update_json
 #from peft import prepare_model_for_kbit_training
 import numpy as np
