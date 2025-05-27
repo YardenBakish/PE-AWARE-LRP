@@ -10,7 +10,6 @@ from sklearn.metrics import auc
 from torchvision.transforms import  GaussianBlur
 from timm.data.constants import IMAGENET_DEFAULT_MEAN, IMAGENET_DEFAULT_STD
 from torchvision import transforms, datasets
-from old.model_ablation import deit_tiny_patch16_224 as vit_LRP
 
 #from models.model_wrapper import model_env 
 from models.model_handler import model_env 
@@ -504,8 +503,8 @@ if __name__ == "__main__":
         model.load_state_dict(checkpoint['model'], strict=False)
         model.to(device)
     else:
-        #FIXME: currently only attribution method is tested. Add support for other methods using other variants 
-        model = vit_LRP(pretrained=True).cuda()
+       
+        exit(1)
   
     model.eval()
 
