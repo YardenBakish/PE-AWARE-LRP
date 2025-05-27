@@ -1,6 +1,6 @@
 # PyTorch Implementation of Revisiting LRP: Positional Attribution as the Missing Ingredient for Transformer Explainability
 <div class="grid" markdown>
-<img src="images/PropogationOverPE-TheXAITransformer-For paper-NIPS.jpg" alt="Alt text" width="400" style="display: inline-block;" height="400"  >
+<img src="images/PropogationOverPE-TheXAITransformer-For paper-NIPS.jpg" alt="Alt text" width="300" style="display: inline-block;" height="400"  >
 <img src="images/PE_LRP_examples.png" alt="Alt text" width="400" height="400" style="display: inline-block" >
 </div> 
 
