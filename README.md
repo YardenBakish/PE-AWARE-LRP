@@ -34,7 +34,15 @@ We provide notebooks for both Vision and NLP:
 
 ## Citation
 If you use this codebase, or otherwise found our work valuable, please cite:
- <pre> TBD </pre> 
+ <pre> @misc{bakish2025revisitinglrppositionalattribution,
+      title={Revisiting LRP: Positional Attribution as the Missing Ingredient for Transformer Explainability}, 
+      author={Yarden Bakish and Itamar Zimerman and Hila Chefer and Lior Wolf},
+      year={2025},
+      eprint={2506.02138},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2506.02138}, 
+} </pre> 
 
 ## Acknowledgments
 The code is heavily inspired by [Transformer-Explainability](https://github.com/hila-chefer/Transformer-Explainability) for Vision models, and [AttnLRP](https://github.com/rachtibat/LRP-eXplains-Transformers/tree/main) and [XAI for Transformers](https://github.com/AmeenAli/XAI_Transformers)  for NLP. Thanks for their wonderful works.
